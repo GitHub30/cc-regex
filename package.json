@@ -1,7 +1,7 @@
 {
   "name": "cc-regex",
   "version": "1.0.3",
-  "description": "Regular expression for Character classes",
+  "description": "'foo@example.com'.match(/\x{email}/)",
   "main": "index.js",
   "repository": {
     "type": "git",
