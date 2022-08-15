@@ -44,7 +44,7 @@ Regular expression for Character classes
 
 ```javascript
 const str = '時どき私はそんな路を歩きながら、ふと、そこが京都ではなくて京都から何百里も離れた仙台とか長崎とか――そのような市へ今自分が来ているのだ――という錯覚を起こそうと努める。'
-await str.matchAsync(/\x{場所}/)
+await str.matchAsync(/\x{場所}/g)
 // ['京都', '京都', '仙台', '長崎']
 ```
 
