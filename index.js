@@ -15,6 +15,15 @@ if (String.prototype.match.toString().includes("[native code]")) {
     }
 }
 
+var token
+fetch("https://api.ce-cotoha.com/v1/oauth/accesstokens", {
+  "headers": {
+    "content-type": "application/json; charset=utf-8",
+  },
+  "body": "{\"grantType\":\"client_credentials\",\"clientId\":\"JZc2IvWQJMELY8tHDzKBvkDQhK2Ln9tl\",\"clientSecret\":\"UMGa5E3MruOr66fV\"}",
+  "method": "POST"
+}).then(r=>r.json()).then(r=>token = r.access_token)
+
 String.prototype.matchAsync = function (regexp) {
     const classes = {
         [/\x{日付}/.source]: 'DAT',
@@ -30,7 +39,7 @@ String.prototype.matchAsync = function (regexp) {
     }
     return fetch("https://api.ce-cotoha.com/api/dev/nlp/v1/ne", {
       "headers": {
-        "authorization": "Bearer lXZIMmyMthuWHewkwcAQGG6RE5Sq",
+        "authorization": "Bearer " + token,
         "content-type": "application/json"
       },
       "body": JSON.stringify({sentence: this}),
