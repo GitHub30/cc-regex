@@ -40,6 +40,14 @@ Regular expression for Character classes
 // ['example.com', 'sub.example.com']
 ```
 
+### Find a Location
+
+```javascript
+const str = '時どき私はそんな路を歩きながら、ふと、そこが京都ではなくて京都から何百里も離れた仙台とか長崎とか――そのような市へ今自分が来ているのだ――という錯覚を起こそうと努める。'
+await str.matchAsync(/\x{場所}/)
+// ['京都', '京都', '仙台', '長崎']
+```
+
 ## Install
 
 ```bash
