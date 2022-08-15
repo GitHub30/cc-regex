@@ -14,3 +14,26 @@ if (String.prototype.match.toString().includes("[native code]")) {
         return match.call(this, regexp)
     }
 }
+
+String.prototype.matchAsync = function (regexp) {
+    const classes = {
+        [/\x{日付}/.source]: 'DAT',
+        [/\x{時間}/.source]: 'TIM',
+        [/\x{人物}/.source]: 'PSN',
+        [/\x{場所}/.source]: 'LOC',
+        [/\x{お金}/.source]: 'MNY',
+        [/\x{組織}/.source]: 'ORG',
+        [/\x{アート}/.source]: 'ART',
+        [/\x{％}/.source]: 'PCT',
+        [/\x{数}/.source]: 'NUM',
+        [/\x{その他}/.source]: 'OTH',
+    }
+    return fetch("https://api.ce-cotoha.com/api/dev/nlp/v1/ne", {
+      "headers": {
+        "authorization": "Bearer lXZIMmyMthuWHewkwcAQGG6RE5Sq",
+        "content-type": "application/json"
+      },
+      "body": JSON.stringify({sentence: this}),
+      "method": "POST"
+    }).then(r=>r.json()).then(resp => resp.result.filter(r=>r.class===classes[regexp.source]).map(r=>r.form))
+}
