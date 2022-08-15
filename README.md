@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/cc-regex.svg)](https://badge.fury.io/js/cc-regex)
+
 # cc-regex
 Regular expression for Character classes
 
@@ -10,7 +12,7 @@ Regular expression for Character classes
 // ['foo@example.com']
 ```
 
-### Find a url
+### Find a URL
 
 ```javascript
 'https://example.com/foo/bar'.match(/\x{url}/g)
