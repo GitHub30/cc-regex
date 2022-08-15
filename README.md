@@ -48,6 +48,14 @@ await str.matchAsync(/\x{場所}/g)
 // ['京都', '京都', '仙台', '長崎']
 ```
 
+### Find a Person
+
+```javascript
+const str = '昨日、ジョンと山田太郎は松のやでカツ丼を食した。'
+await str.matchAsync(/\x{人物}/g)
+// ['ジョン', '山田太郎']
+```
+
 ## Install
 
 ```bash
