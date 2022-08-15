@@ -1,0 +1,26 @@
+{
+  "name": "cc-regex",
+  "version": "1.0.0",
+  "description": "Regular expression for Character classes",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GitHub30/cc-regex"
+  },
+  "keywords": [
+    "RegEx",
+    "RegExp",
+    "Regular expression",
+    "Character Classes"
+  ],
+  "author": {
+    "name": "name",
+    "email": "funaox@gmail.com",
+    "url": "https://github.com/GitHub30"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GitHub30/cc-regex/issues"
+  },
+  "homepage": "https://github.com/GitHub30/cc-regex"
+}
