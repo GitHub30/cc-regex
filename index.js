@@ -17,16 +17,17 @@ if (String.prototype.match.toString().includes("[native code]")) {
     }
 }
 
-var token
-fetch("https://api.ce-cotoha.com/v1/oauth/accesstokens", {
-  "headers": {
-    "content-type": "application/json; charset=utf-8",
-  },
-  "body": "{\"grantType\":\"client_credentials\",\"clientId\":\"JZc2IvWQJMELY8tHDzKBvkDQhK2Ln9tl\",\"clientSecret\":\"UMGa5E3MruOr66fV\"}",
-  "method": "POST"
-}).then(r=>r.json()).then(r=>token = r.access_token)
-
-String.prototype.matchAsync = function (regexp) {
+var access_tokens
+String.prototype.matchAsync = async function (regexp) {
+    if (!access_tokens) {
+        access_tokens = await fetch("https://api.ce-cotoha.com/v1/oauth/accesstokens", {
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+          },
+          "body": atob('eyJncmFudFR5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJjbGllbnRJZCI6Ik1HR1A2TTI2OHp0UG5oa3ZIY2M0cFhkeFNRdVY3S25yIiwiY2xpZW50U2VjcmV0IjoiOFJSQXd4QVFiZWhmT2NhSyJ9'),
+          "method": "POST"
+        }).then(r=>r.json())
+    }
     const classes = {
         [/\x{日付}/.source]: 'DAT',
         [/\x{時間}/.source]: 'TIM',
@@ -41,7 +42,7 @@ String.prototype.matchAsync = function (regexp) {
     }
     return fetch("https://api.ce-cotoha.com/api/dev/nlp/v1/ne", {
       "headers": {
-        "authorization": "Bearer " + token,
+        "authorization": "Bearer " + access_tokens.access_token,
         "content-type": "application/json"
       },
       "body": JSON.stringify({sentence: this}),
