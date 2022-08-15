@@ -1,6 +1,6 @@
 {
   "name": "cc-regex",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "'foo@example.com'.match(/\\x{email}/)",
   "main": "index.js",
   "repository": {
