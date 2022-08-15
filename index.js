@@ -10,7 +10,7 @@ if (String.prototype.match.toString().includes("[native code]")) {
         regexp = new RegExp(regexp.source.replaceAll(/\x{url}/.source, url.source), regexp.flags + url.flags)
         regexp = new RegExp(regexp.source.replaceAll(/\x{都道府県}/.source, 都道府県.source), regexp.flags + 都道府県.flags)
         regexp = new RegExp(regexp.source.replaceAll(/\x{ip}/.source, ip.source), regexp.flags + ip.flags)
-        regexp = new RegExp(regexp.source.replaceAll(/\x{fqdn}/.source, ip.source), regexp.flags + fqdn.flags)
+        regexp = new RegExp(regexp.source.replaceAll(/\x{fqdn}/.source, fqdn.source), regexp.flags + fqdn.flags)
         return match.call(this, regexp)
     }
 }
