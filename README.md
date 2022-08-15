@@ -62,6 +62,8 @@ await str.matchAsync(/\x{人物}/g)
 npm install cc-regex
 ```
 
+![image](https://user-images.githubusercontent.com/12811398/184637627-af99820e-40e6-4bd3-99ea-aba73a27fcab.png)
+
 ### for browser
 
 ```html
